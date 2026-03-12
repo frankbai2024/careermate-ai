@@ -1,6 +1,7 @@
+/* eslint-env vitest */
 import { render, screen, within } from '@testing-library/react';
 //globals:true,就不需要以下这行了
-//import { vi, describe, test, expect } from "vitest";
+import { vi, describe, test, expect } from "vitest";
 import userEvent from '@testing-library/user-event';
 import Field from './Field';
 
@@ -53,6 +54,7 @@ describe('Field', () => {
         label="Email"
         type="text"
         value="alice@email.com"
+        onChange={vi.fn()}
         placeholder="Please type your email"
         error="Invalid email address"
       />
