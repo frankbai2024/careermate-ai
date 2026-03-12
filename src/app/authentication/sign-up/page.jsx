@@ -28,8 +28,6 @@ const SignUpPage = () => {
 
   const [serverError, setServerError] = useState();
 
-  //const [isRegistered, setIsRegistered] = useState(false);
-
   const router = useRouter();
 
   return (
