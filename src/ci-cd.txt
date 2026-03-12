@@ -5,3 +5,16 @@ CI/CD 概念
 provider  第三方工具 github action
 pipeline 在provider里实现CI/CD的具体代码
 plan - design - develop - test - review - launch
+
+
+git remote -v
+//可以先删除原有的再添加：
+git remote remove origin
+git remote add origin https://github.com/frankbai2024/careermate-ai.git
+//也可以另外set-url
+git remote set-url origin https://github.com/frankbai2024/careermate-ai.git
+//上传到新的
+git push origin main
+
+另起一个branch
+git checkout -b github-actions-pipeline
