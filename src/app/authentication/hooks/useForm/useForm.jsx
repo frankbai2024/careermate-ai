@@ -11,15 +11,35 @@ const useForm = ({ fields, validation }) => {
 
     return initialData;
   });//
-
-  const onChange = (field, event) => {
+  // -----------------------------------------------------------
+  // const onChange = (field, event) => {
+  //   setData((previousData) => ({
+  //     ...previousData,
+  //     [field]: event.target.value,
+  //   })
+  //   );
+  // };
+  //换成high-order function 写法：比如field是email,调用onChange={onChange("email")}返回event方法
+  const onChange = (field) => (event) => {
     setData((previousData) => ({
       ...previousData,
       [field]: event.target.value,
     })
     );
-  };
-
+  }
+  //接受参数调用，并返回一个函数
+  //实现保存参数的作用 - 闭包
+  // const onChange = (field) => {
+  //   const fn = (event) => {
+  //     setData((previousData) => ({
+  //       ...previousData,
+  //       [field]: event.target.value,
+  //     })
+  //     );
+  //   };
+  //   return fn;
+  // }
+  // ------------------------------------------------------------
   const error = {};
   Object.keys(validation).forEach((field) => {
     const result = validation[field](data[field]);
@@ -31,9 +51,9 @@ const useForm = ({ fields, validation }) => {
     error[field] = result;
   });
 
-
-  //HOF high order function
-  const onSubmit = (handleSubmit, event) => { //handleSubmit是传进来的方法，对应try/catch那一段。
+  //const onSubmit = (handleSubmit, event) => { //handleSubmit是传进来的方法，对应try/catch那一段。
+  //改成HOF high order function
+  const onSubmit = (handleSubmit) => (event) => {
     event.preventDefault();
     setIsSubmitted(true);
 

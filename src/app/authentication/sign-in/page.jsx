@@ -35,34 +35,39 @@ const SignInPage = () => {
 
         <Field
           value={data.email}
-          onChange={(event) => onChange("email", event)}
+          //onChange={(event) => onChange("email", event)}
+          //换一种写法,调用useForm.jsx里 const onChange= ("email") => (event) => ...
+          onChange={onChange("email")}
           label="Email" placeholder="Your Email"
           error={isSubmitted && error.email}
         />
         <Field
           value={data.password}
-          onChange={(event) => onChange("password", event)}
+          onChange={onChange("password")}
           label="Password" type="password" placeholder="Your Password"
           error={isSubmitted && error.password}
         />
 
         <Button
-          onClick={(event) => {
-            onSubmit(async () => {
-              console.log(data);
-              try {
-                await axios.post(
-                  `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/login`, data);//本地backend
-              } catch (error) {
-                console.log(error);
-                setServerError(error);
-                return;
-              }
-              console.log("登陆成功");
-              router.push("/dashboard");
-            }, event);
-          }}
-        >Log In</Button>
+
+          onClick={onSubmit(async () => {
+            console.log(data);
+            try {
+              await axios.post(
+                `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/login`, data);//本地backend
+            } catch (error) {
+              console.log(error);
+              setServerError(error);
+              return;
+            }
+            console.log("登陆成功");
+            router.push("/dashboard");
+          })
+          }
+        >
+          Log In
+        </Button>
+
         <Hint
           message="Don't have an account? "
           action={{ text: "Sign Up", href: "/authentication/sign-up" }}
