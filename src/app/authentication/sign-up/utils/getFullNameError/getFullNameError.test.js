@@ -1,5 +1,6 @@
 //import { describe } from "vitest";
 //import { expect } from "vitest";
+import { describe, test, expect } from "vitest";
 import getFullNameError from "./getFullNameError";
 
 describe('getFullNameError', ()=> {

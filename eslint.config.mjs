@@ -1,5 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -13,6 +15,10 @@ const eslintConfig = defineConfig([
   ]),
   {
     files: ["**/*.{js,jsx,ts,tsx}"],  // 所有 JS / TS 文件
+    plugins:{
+      react: pluginReact,
+      "react-hooks":pluginReactHooks,
+    },
     rules: {
       "no-undef": "error" // 未定义变量直接红色波浪线
     }

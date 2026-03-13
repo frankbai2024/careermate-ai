@@ -1,4 +1,5 @@
 import getPasswordError from "./getPasswordError";
+import { describe, test, expect } from "vitest";
 
 describe('getPasswordError', ()=> {
   test("returns error message when password is empty", ()=>{
