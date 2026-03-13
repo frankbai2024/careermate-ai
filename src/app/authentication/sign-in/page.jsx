@@ -52,7 +52,7 @@ const SignInPage = () => {
               console.log(data);
               try {
                 await axios.post(
-                  "http://localhost:3000/v1/auth/login", data);
+                  `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/login`, data);//本地backend
               } catch (error) {
                 console.log(error);
                 setServerError(error);

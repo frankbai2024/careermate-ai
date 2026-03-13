@@ -62,7 +62,7 @@ const SignUpPage = () => {
               try {
                 await axios.post(
                   // "http://localhost:8000/api/auth/sign-up",
-                  "http://localhost:3000/v1/auth/register", data);
+                  `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/register`, data);
               } catch (error) {
                 setServerError(error);
                 return;
