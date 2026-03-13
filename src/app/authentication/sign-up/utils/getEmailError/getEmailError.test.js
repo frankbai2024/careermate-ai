@@ -1,4 +1,5 @@
 import getEmailError from "./getEmailError";
+import { describe, test, expect } from "vitest";
 
 describe('getEmailError', ()=> {
   test("returns error message when email is empty", ()=>{

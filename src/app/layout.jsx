@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Header from "./components/Header";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,17 +17,15 @@ export const metadata = {
   description: "Your AI Career Practice Partner",
 };
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
-        <div id="dialog-root" />
-        <div>THE ROOT LAYOUT</div>
-      </body>
-    </html>
-  );
-}
+const RootLayout = ({ children }) => (
+  <html lang="en">
+    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <Header />
+      {children}
+      <div id="dialog-root" />
+      <div>THE ROOT LAYOUT</div>
+    </body>
+  </html>
+);
+
+export default RootLayout;
