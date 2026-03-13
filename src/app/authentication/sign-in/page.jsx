@@ -49,7 +49,7 @@ const SignInPage = () => {
         />
 
         <Button
-<<<<<<< Updated upstream
+
           onClick={onSubmit(async () => {
             console.log(data);
             try {
@@ -67,24 +67,7 @@ const SignInPage = () => {
         >
           Log In
         </Button>
-=======
-          onClick={(event) => {
-            onSubmit(async () => {
-              console.log(data);
-              try {
-                await axios.post(
-                  `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/login`, data);//本地backend
-              } catch (error) {
-                console.log(error);
-                setServerError(error);
-                return;
-              }
-              console.log("登陆成功");
-              router.push("/dashboard");
-            }, event);
-          }}
-        >Log In</Button>
->>>>>>> Stashed changes
+
         <Hint
           message="Don't have an account? "
           action={{ text: "Sign Up", href: "/authentication/sign-up" }}

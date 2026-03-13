@@ -56,7 +56,7 @@ const SignUpPage = () => {
         />
 
         <Button
-<<<<<<< Updated upstream
+
           onClick={onSubmit(async () => {
             console.log(data);
             try {
@@ -67,19 +67,6 @@ const SignUpPage = () => {
               setServerError(error);
               return;
             }
-=======
-          onClick={async (event) => {
-            onSubmit(async () => {
-              console.log(data);
-              try {
-                await axios.post(
-                  // "http://localhost:8000/api/auth/sign-up",
-                  `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/register`, data);
-              } catch (error) {
-                setServerError(error);
-                return;
-              }
->>>>>>> Stashed changes
 
             //setIsRegistered(true);
             console.log("注册成功");

@@ -1,6 +1,8 @@
+/* eslint-env vitest */
 const { renderHook } = require("@testing-library/react");
 import useForm from "./useForm";
 import {act} from "react";
+import { vi, describe, test, expect } from "vitest";
 
 describe('useForm',()=>{
   test('updates data on change', ()=>{
