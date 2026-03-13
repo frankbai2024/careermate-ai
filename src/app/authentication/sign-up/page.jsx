@@ -39,23 +39,35 @@ const SignUpPage = () => {
         />
 
         <Field value={data.fullName}
-          onChange={(event) => onChange("fullName", event)}
+          onChange={onChange("fullName")}
           label="Full Name" placeholder="Your Full Name"
           error={isSubmitted && error.fullName}
         />
 
         <Field value={data.email}
-          onChange={(event) => onChange("email", event)}
+          onChange={onChange("email")}
           label="Email" placeholder="Your Email"
           error={isSubmitted && error.email}
         />
         <Field value={data.password} type="password"
-          onChange={(event) => onChange("password", event)}
+          onChange={onChange("password")}
           label="Password" placeholder="Create Your Password"
           error={isSubmitted && error.password}
         />
 
         <Button
+<<<<<<< Updated upstream
+          onClick={onSubmit(async () => {
+            console.log(data);
+            try {
+              await axios.post(
+                // "http://localhost:8000/api/auth/sign-up",
+                `${process.env.NEXT_PUBLIC_AUTH_API}/v1/auth/register`, data);
+            } catch (error) {
+              setServerError(error);
+              return;
+            }
+=======
           onClick={async (event) => {
             onSubmit(async () => {
               console.log(data);
@@ -67,13 +79,14 @@ const SignUpPage = () => {
                 setServerError(error);
                 return;
               }
+>>>>>>> Stashed changes
 
-              //setIsRegistered(true);
-              console.log("注册成功");
+            //setIsRegistered(true);
+            console.log("注册成功");
 
-              router.push("/dashboard");
-            }, event);
-          }}
+            router.push("/dashboard");
+          })
+          }
         >
           Create Account
         </Button>
